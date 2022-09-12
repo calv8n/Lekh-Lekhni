@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'blog/base.html' %}
+    {% load static %}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style-2.css' %}">
+    
+</head>
+<body>
+    <title>{{ post.title }}</title>
+    <div class="container">
+        <div class="heading">
+            <h1>{{ post.title }}</h1>
+        </div>
+        <div class="content-intro">
+            <p>{{ post.intro }}</p>
+        </div>
+        <div class="img">
+            <img src="{{ post.header_image.url }}" alt="">
+        </div>
+        <div class="content">
+            <p>{{ post.body|safe }}</p>
+        </div>
+        <div class="date">
+            <p>Posted at {{ post.date_added }}</p>
+        </div>
+    </div>
+    
+
+    
+    <hr>
+
+    <div class="comments">
+        <h2>Comments</h2>
+        {% for comment in post.comments.all %}
+        <div class="content">
+            <p>
+                <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
+                <br>
+                {{ comment.body }}
+            </p>
+        </div>
+        {% empty %}
+        <div class="notification">
+            <p>No comments yet!</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <hr>
+    <div class="forms">
+        <h2 class="subtitle">Add comment</h2>
+
+    <form method="post" action=".">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-success">Submit</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    
+{% endblock %}
+</body>
+</html>

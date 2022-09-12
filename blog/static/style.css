@@ -1,0 +1,86 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: content-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    
+}
+.container{
+    width: 100%;
+    background-color: #f7f7f7;
+    min-height: 10vh;
+}
+.container .row{
+    width: 85%;
+    margin: auto;
+}
+.container .row .heading-section{
+    width: 60%;
+    text-align: center;
+    margin: auto;
+}
+.container .row .heading-section h1{
+    padding-top: 30px;
+    font-size: 42px;
+}
+.container .row .heading-section span{
+    color: rgb(102, 205, 236);
+}
+.container .row .heading-section p{
+    margin-top: 15px;
+    color: #3d3d3d;
+    font-size: 17px;
+    line-height: 1.5;
+}
+.content-section{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.content-section .card{
+    flex: 1;
+    margin: 40px 20px;
+}
+.content-section .card img{
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+}
+.content-section .card h4{
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+.content-section .card h4 a{
+    color: #3d3d3d;
+}
+.content-section .card h4 a:hover{
+    color: #f4ae5f;
+}
+.content-section .card p{
+    font-size: 15px;
+    margin-top: 8px;
+    color: #3d3d3d;
+    line-height: 1.5;
+    font-style: italic;
+}
+@media screen and (max-width: 900px)  {
+    .content-section{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 768px)  {
+    .content-section{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 568px)  {
+    .content-section{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 412px)  {
+    .content-section{
+        flex-direction: column;
+    }
+}

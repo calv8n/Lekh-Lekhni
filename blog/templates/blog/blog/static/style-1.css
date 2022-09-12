@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.body {
+    background: black;
+}
+.card{
+    background: white;
+    width: 200px;
+    height: 400px;
+    margin: 10px;
+}

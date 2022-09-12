@@ -1,0 +1,38 @@
+
+<head>
+    {% extends 'blog/base.html' %}
+    {% load static %}
+    {% block content %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"> 
+    
+  
+</head>
+<body>
+ 
+    <div class="container">
+        <div class="row">
+            <div class="heading-section">
+                <h1>Recent <span>Blogs</span></h1>
+                <p>                                       
+                    Hi, this is Shalini, your thought partner. Actually I wanted to write anything about anyone that touches my heart. But the thought of coming forward just came after I felt lost in woods when I wanted to be in velvety meadow. Thoughtfully, thoughts apart, I just want a platonic connection with my readers. A seemingly complicated thing might be simpler and so are life stories.
+                </p>
+            </div>
+        </div>
+        {% for post in posts %}
+        {% if forloop.counter <= 5 %}
+        <div class="content-section">
+            <div class="card">
+                <img src="/media//{{ post.header_image }}" alt="">
+                <h4><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h4>
+                <p>{{ post.intro }}</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endblock %}
+</body>
+    
+    
+       

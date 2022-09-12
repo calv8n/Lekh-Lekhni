@@ -1,0 +1,44 @@
+
+<head>
+    {% extends 'blog/base.html' %}
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style-1.css' %}">   
+    <link rel="stylesheet" type="text/css" href="blog/static/style-1.css">
+</head>
+
+    
+    
+       
+    <body> 
+        {% block content %}
+        
+          <div class="container">
+            <div class="row">
+                <div class="header">
+                    <h2>Blogs</h2>
+                    <p>About the Blogs</p>
+                </div>
+                {% for post in posts %}
+                
+                <div class="content">
+                    <div class="card">
+                        <div class="header-1">
+                                    <h2>{{ post.title }}</h2>
+                                    <span>Posted at {{ post.date_added }}</span>
+                                </div>
+                                <img src="/media//{{ post.header_image }}" alt="">
+                                <p>{{ post.intro }}</p>
+                                <a href="{% url 'post_detail' post.slug %}">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+          </div>   
+          
+          {% endfor %}
+        {% endblock %}
+    </body>
